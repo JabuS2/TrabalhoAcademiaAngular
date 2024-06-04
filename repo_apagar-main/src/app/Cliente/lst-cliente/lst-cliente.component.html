@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Registros</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3">
+    <button type="button" (click)="onClick()" class="btn btn-success mb-3">Cadastrar usuário</button>
+
+    <h2>Listagem de Clientes</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefone }}</td>
+                <td>{{ cliente.endereco }}</td>
+                <td><button class="btn btn-secondary" (click)="openEdit(cliente.id)">Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

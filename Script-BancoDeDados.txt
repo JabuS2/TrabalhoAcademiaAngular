@@ -1,0 +1,58 @@
+-- Cria o banco de dados
+CREATE DATABASE academia;
+
+-- Usa o banco de dados criado
+USE academia;
+
+-- Cria a tabela Cliente
+CREATE TABLE Cliente (
+    idcli INT AUTO_INCREMENT PRIMARY KEY,
+    nomecli VARCHAR(255) NOT NULL,
+    endcli VARCHAR(255),
+    fonecli VARCHAR(20),
+    emailcli VARCHAR(255)
+);
+
+-- Cria a tabela Funcionario
+CREATE TABLE Funcionario (
+    idfunc INT AUTO_INCREMENT PRIMARY KEY,
+    nomefunc VARCHAR(255) NOT NULL,
+    funcaofunc VARCHAR(255),
+    contatofunc VARCHAR(20),
+    salariofunc DOUBLE
+);
+
+-- Cria a tabela Planos
+CREATE TABLE Planos (
+    idplano INT AUTO_INCREMENT PRIMARY KEY,
+    nomeplano VARCHAR(255) NOT NULL,
+    valor DOUBLE
+);
+
+-- Cria a tabela Pagamentos
+CREATE TABLE Pagamentos (
+    idpagamento INT AUTO_INCREMENT PRIMARY KEY,
+    idcli INT,
+    idplano INT,
+    datapagamento TIMESTAMP,
+    FOREIGN KEY (idcli) REFERENCES Cliente(idcli),
+    FOREIGN KEY (idplano) REFERENCES Planos(idplano)
+);
+
+-- Cria a tabela Usuario
+CREATE TABLE Usuario (
+    id VARCHAR(50) PRIMARY KEY,
+    nome VARCHAR(255),
+    telefone VARCHAR(20),
+    login VARCHAR(50),
+    senha VARCHAR(255),
+    perfil VARCHAR(50)
+);
+
+USE academia;
+
+INSERT INTO Cliente (nomecli, endcli, fonecli, emailcli) VALUES
+('João Silva', 'Rua das Flores, 123', '11987654321', 'joao.silva@example.com'),
+('Maria Oliveira', 'Avenida Central, 456', '21987654321', 'maria.oliveira@example.com'),
+('Carlos Pereira', 'Praça da Liberdade, 789', '31987654321', 'carlos.pereira@example.com');
+
